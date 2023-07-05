@@ -1,0 +1,184 @@
+name: banner_example
+description: Example project for demoing banner ads.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  google_mobile_ads: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/icons/
+    - assets/fonts/
+    - assets/fonts/BalooBhaijaan2/
+    - assets/fonts/Kodchasan/
+    - assets/fonts/Coiny/
+    - assets/fonts/MontaguSlab/
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+  - family: MontaguSlab
+    fonts:
+      - asset: assets/fonts/MontaguSlab/MontaguSlab-VariableFont.ttf
+      - asset: assets/fonts/MontaguSlab/MontaguSlab_24pt-Light.ttf
+  - family: Coiny
+    fonts:
+      - asset: assets/fonts/Coiny/Coiny-Regular.ttf
+  - family: Baloo_Paaji_2
+    fonts:
+      - asset: assets/fonts/Baloo_Paaji_2/BalooPaaji2-VariableFont_wght.ttf
+      - asset: assets/fonts/Baloo_Paaji_2/static/BalooPaaji2-Bold.ttf
+      - asset: assets/fonts/Baloo_Paaji_2/static/BalooPaaji2-ExtraBold.ttf
+      - asset: assets/fonts/Baloo_Paaji_2/static/BalooPaaji2-Medium.ttf
+      - asset: assets/fonts/Baloo_Paaji_2/static/BalooPaaji2-Regular.ttf
+      - asset: assets/fonts/Baloo_Paaji_2/static/BalooPaaji2-SemiBold.ttf
+  - family: BalooBhaijaan2
+    fonts:
+      - asset: assets/fonts/BalooBhaijaan2/BalooBhaijaan2-Bold.ttf
+      - asset: assets/fonts/BalooBhaijaan2/BalooBhaijaan2-ExtraBold.ttf
+      - asset: assets/fonts/BalooBhaijaan2/BalooBhaijaan2-Medium.ttf
+      - asset: assets/fonts/BalooBhaijaan2/BalooBhaijaan2-Regular.ttf
+      - asset: assets/fonts/BalooBhaijaan2/BalooBhaijaan2-SemiBold.ttf
+  - family: Braah_One
+    fonts:
+      - asset: assets/fonts/Braah_One/BraahOne-Regular.ttf
+  - family: Dongle
+    fonts:
+      - asset: assets/fonts/Dongle/Dongle-Bold.ttf
+      - asset: assets/fonts/Dongle/Dongle-Light.ttf
+      - asset: assets/fonts/Dongle/Dongle-Regular.ttf
+  - family: Lexend_Zetta
+    fonts:
+      - asset: assets/fonts/Lexend_Zetta/LexendZetta-VariableFont.ttf
+      - asset: assets/fonts/Lexend_Zetta/static/LexendZetta-Black.ttf
+      - asset: assets/fonts/Lexend_Zetta/static/LexendZetta-Bold.ttf
+      - asset: assets/fonts/Lexend_Zetta/static/LexendZetta-ExtraBold.ttf
+      - asset: assets/fonts/Lexend_Zetta/static/LexendZetta-ExtraLight.ttf
+      - asset: assets/fonts/Lexend_Zetta/static/LexendZetta-Light.ttf
+      - asset: assets/fonts/Lexend_Zetta/static/LexendZetta-Thin.ttf
+      - asset: assets/fonts/Lexend_Zetta/static/LexendZetta-Medium.ttf
+      - asset: assets/fonts/Lexend_Zetta/static/LexendZetta-Regular.ttf
+      - asset: assets/fonts/Lexend_Zetta/static/LexendZetta-SemiBold.ttf
+  - family: Merienda
+    fonts:
+      - asset: assets/fonts/Merienda/Merienda-VariableFont.ttf
+      - asset: assets/fonts/Merienda/static/Merienda-Black.ttf
+      - asset: assets/fonts/Merienda/static/Merienda-ExtraBold.ttf
+      - asset: assets/fonts/Merienda/static/Merienda-Light.ttf
+      - asset: assets/fonts/Merienda/static/Merienda-Bold.ttf
+      - asset: assets/fonts/Merienda/static/Merienda-Medium.ttf
+      - asset: assets/fonts/Merienda/static/Merienda-Regular.ttf
+      - asset: assets/fonts/Merienda/static/Merienda-SemiBold.ttf
+  - family: MuseoModerno
+    fonts:
+      - asset: assets/fonts/MuseoModerno/MuseoModerno-Italic-VariableFont_wght.ttf
+      - asset: assets/fonts/MuseoModerno/MuseoModerno-VariableFont_wght.ttf
+  - family: Oooh_Baby
+    fonts:
+      - asset: assets/fonts/Oooh_Baby/OoohBaby-Regular.ttf
+  - family: Pangolin
+    fonts:
+      - asset: assets/fonts/Pangolin/Pangolin-Regular.ttf
+  - family: Pattaya
+    fonts:
+      - asset: assets/fonts/Pattaya/Pattaya-Regular.ttf
+  - family: Sriracha
+    fonts:
+      - asset: assets/fonts/Sriracha/Sriracha-Regular.ttf
+  - family: Tilt_Neon
+    fonts:
+      - asset: assets/fonts/Tilt_Neon/static/TiltNeon-Regular.ttf
+      - asset: assets/fonts/Tilt_Neon/TiltNeon-Regular-VariableFont.ttf
+  - family: Kodchasan
+    fonts:
+      - asset: assets/fonts/Kodchasan/Kodchasan-Bold.ttf
+      - asset: assets/fonts/Kodchasan/Kodchasan-BoldItalic.ttf
+      - asset: assets/fonts/Kodchasan/Kodchasan-ExtraLight.ttf
+      - asset: assets/fonts/Kodchasan/Kodchasan-ExtraLightItalic.ttf
+      - asset: assets/fonts/Kodchasan/Kodchasan-Italic.ttf
+      - asset: assets/fonts/Kodchasan/Kodchasan-Light.ttf
+      - asset: assets/fonts/Kodchasan/Kodchasan-LightItalic.ttf
+      - asset: assets/fonts/Kodchasan/Kodchasan-Medium.ttf
+      - asset: assets/fonts/Kodchasan/Kodchasan-MediumItalic.ttf
+      - asset: assets/fonts/Kodchasan/Kodchasan-Regular.ttf
+      - asset: assets/fonts/Kodchasan/Kodchasan-Semibold.ttf
+      - asset: assets/fonts/Kodchasan/Kodchasan-SemiboldItalic.ttf    
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
