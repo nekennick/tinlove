@@ -67,86 +67,84 @@ class _ResultScreenState extends State<ResultScreen> {
         elevation: 0.0,
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SizedBox(
-            width: double.infinity,
-            child: Column(
-              children: [
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                      text: widget.name1,
-                      style: const TextStyle(
-                          fontSize: 40,
-                          fontFamily: 'Coiny',
-                          color: AppColors.nameColor,
-                          shadows: [
-                            BoxShadow(
-                                color: Colors.black38,
-                                offset: Offset(3, 6),
-                                blurRadius: 15),
-                          ])),
-                ),
-                const SizedBox(height: 10),
-                Image.asset(AppAssets.love, height: 50, width: 50),
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                      text: widget.name2,
-                      style: const TextStyle(
-                          fontSize: 40,
-                          fontFamily: 'Coiny',
-                          color: AppColors.nameColor,
-                          shadows: [
-                            BoxShadow(
-                                color: Colors.black38,
-                                offset: Offset(3, 6),
-                                blurRadius: 15),
-                          ])),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: AppColors.contentcolor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: isLoading
-                        ? const CircularProgressIndicator()
-                        : Column(
-                            children: [
-                              RichText(
-                                  text: TextSpan(
-                                      text: widget.result,
-                                      style: const TextStyle(
-                                          fontSize: 22,
-                                          fontFamily: 'Braah_One',
-                                          color: Colors.black)))
-                            ],
-                          )),
-                const SizedBox(height: 20),
-                Stack(
-                  children: [
-                    if (_bannerAd != null)
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: SafeArea(
-                          child: SizedBox(
-                            width: _bannerAd!.size.width.toDouble(),
-                            height: _bannerAd!.size.height.toDouble(),
-                            child: AdWidget(ad: _bannerAd!),
-                          ),
-                        ),
-                      )
-                  ],
-                )
-              ],
+      body: Stack(children: [
+        if (_bannerAd != null)
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SafeArea(
+              child: SizedBox(
+                width: _bannerAd!.size.width.toDouble(),
+                height: _bannerAd!.size.height.toDouble(),
+                child: AdWidget(ad: _bannerAd!),
+              ),
+            ),
+          ),
+        SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: SizedBox(
+              width: double.infinity,
+              child: Column(
+                children: [
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                        text: widget.name1,
+                        style: const TextStyle(
+                            fontSize: 40,
+                            fontFamily: 'Coiny',
+                            color: AppColors.nameColor,
+                            shadows: [
+                              BoxShadow(
+                                  color: Colors.black38,
+                                  offset: Offset(3, 6),
+                                  blurRadius: 15),
+                            ])),
+                  ),
+                  const SizedBox(height: 10),
+                  Image.asset(AppAssets.love, height: 50, width: 50),
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                        text: widget.name2,
+                        style: const TextStyle(
+                            fontSize: 40,
+                            fontFamily: 'Coiny',
+                            color: AppColors.nameColor,
+                            shadows: [
+                              BoxShadow(
+                                  color: Colors.black38,
+                                  offset: Offset(3, 6),
+                                  blurRadius: 15),
+                            ])),
+                  ),
+                  const SizedBox(height: 20),
+                  Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: AppColors.contentcolor,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: isLoading
+                          ? const CircularProgressIndicator()
+                          : Column(
+                              children: [
+                                RichText(
+                                    text: TextSpan(
+                                        text: widget.result,
+                                        style: const TextStyle(
+                                            fontSize: 22,
+                                            fontFamily: 'Braah_One',
+                                            color: Colors.black)))
+                              ],
+                            )),
+                  const SizedBox(height: 20),
+                ],
+              ),
             ),
           ),
         ),
-      ),
+      ]),
     );
   }
 
