@@ -9,6 +9,7 @@ void main() {
   MobileAds.instance.initialize();
 
   runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: MyApp(),
   ));
 }

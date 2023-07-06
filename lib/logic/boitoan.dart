@@ -136,7 +136,7 @@ class _BoiToanState extends State<BoiToan> {
         elevation: 0.0,
         centerTitle: true,
       ),
-      //
+      resizeToAvoidBottomInset: false,
       body: Stack(children: [
         if (_bannerAd != null)
           Align(
