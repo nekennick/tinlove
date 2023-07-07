@@ -32,9 +32,9 @@ class _ResultScreenState extends State<ResultScreen> {
   bool isLoading = true;
   // khai báo idqc banner
   BannerAd? _bannerAd;
-
+  //id app banner ca-app-pub-9808019056055820~8645787293
   final String _adUnitId = Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/6300978111'
+      ? 'ca-app-pub-9808019056055820~8645787293'
       : 'ca-app-pub-3940256099942544/2934735716';
 // khai báo idqc banner
 

@@ -26,14 +26,19 @@ class _BoiToanState extends State<BoiToan> {
   BannerAd? _bannerAd;
 // QC xen kẽ
   InterstitialAd? _interstitialAd;
-//ID QC banner
+
+// QC banner
+//id google banner ca-app-pub-3940256099942544/6300978111
+//id app banner ca-app-pub-9808019056055820~8645787293
   final String _adUnitId = Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/6300978111'
+      ? 'ca-app-pub-9808019056055820~8645787293'
       : 'ca-app-pub-3940256099942544/2934735716';
 
 //ID QC XenKe
+//id google ca-app-pub-3940256099942544/1033173712
+//id app ca-app-pub-9808019056055820/1860887099
   final String _adUnitIdxenke = Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/1033173712'
+      ? 'ca-app-pub-9808019056055820/1860887099'
       : 'ca-app-pub-3940256099942544/4411468910';
 
 // khai báo idqc banner
@@ -350,15 +355,15 @@ class _BoiToanState extends State<BoiToan> {
                 // Called when an impression occurs on the ad.
                 onAdImpression: (ad) {},
                 // Called when the ad failed to show full screen content.
-                onAdFailedToShowFullScreenContent: (ad, err) {
-                  // Dispose the ad here to free resources.
-                  ad.dispose();
-                },
+                // onAdFailedToShowFullScreenContent: (ad, err) {
+                //   // Dispose the ad here to free resources.
+                //   ad.dispose();
+                // },
                 // Called when the ad dismissed full screen content.
-                onAdDismissedFullScreenContent: (ad) {
-                  // Dispose the ad here to free resources.
-                  ad.dispose();
-                },
+                // onAdDismissedFullScreenContent: (ad) {
+                //   // Dispose the ad here to free resources.
+                //   ad.dispose();
+                // },
                 // Called when a click is recorded for an ad.
                 onAdClicked: (ad) {});
 
@@ -389,9 +394,9 @@ class _BoiToanState extends State<BoiToan> {
           });
         },
         // Called when an ad request failed.
-        onAdFailedToLoad: (ad, err) {
-          ad.dispose();
-        },
+        // onAdFailedToLoad: (ad, err) {
+        //   ad.dispose();
+        // },
         // Called when an ad opens an overlay that covers the screen.
         onAdOpened: (Ad ad) {},
         // Called when an ad removes an overlay that covers the screen.
@@ -402,10 +407,10 @@ class _BoiToanState extends State<BoiToan> {
     ).load();
   }
 
-  @override
-  void dispose() {
-    _bannerAd?.dispose();
-    _interstitialAd?.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _bannerAd?.dispose();
+  //   _interstitialAd?.dispose();
+  //   super.dispose();
+  // }
 }
