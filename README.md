@@ -1,4 +1,4 @@
-# banner_example
+# com.khoata.ailove
 
 An example project that demonstrates loading and showing banner ads.
 

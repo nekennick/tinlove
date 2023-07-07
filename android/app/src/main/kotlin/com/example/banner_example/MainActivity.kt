@@ -1,4 +1,4 @@
-package com.example.banner_example
+package com.khoata.ailove
 
 import io.flutter.embedding.android.FlutterActivity
 
