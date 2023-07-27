@@ -29,17 +29,17 @@ class _BoiToanState extends State<BoiToan> {
 
 // QC banner
 //id google banner ca-app-pub-3940256099942544/6300978111
-//id app banner ca-app-pub-9808019056055820~8645787293
+//id app banner ca-app-pub-9808019056055820/7988861846
   final String _adUnitId = Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/6300978111'
-      : 'ca-app-pub-3940256099942544/2934735716';
+      ? 'ca-app-pub-9808019056055820/7988861846'
+      : 'ca-app-pub-3940256099942544/6300978111';
 
 //ID QC XenKe
-//id google ca-app-pub-3940256099942544/1033173712
+//id google ca-app-pub-3940256099942544/1033173712    ca-app-pub-3940256099942544/4411468910
 //id app ca-app-pub-9808019056055820/1860887099
   final String _adUnitIdxenke = Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/1033173712'
-      : 'ca-app-pub-3940256099942544/4411468910';
+      ? 'ca-app-pub-9808019056055820/1860887099'
+      : 'ca-app-pub-3940256099942544/1033173712';
 
 // khai báo idqc banner
 
