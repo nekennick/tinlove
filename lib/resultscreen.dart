@@ -33,9 +33,9 @@ class _ResultScreenState extends State<ResultScreen> {
   // khai báo idqc banner
   BannerAd? _bannerAd;
   //id google ca-app-pub-3940256099942544/6300978111   ca-app-pub-3940256099942544/2934735716
-  //id app banner ca-app-pub-9808019056055820/7988861846
+  //id app banner ca-app-pub-9808019056055820/7484950495
   final String _adUnitId = Platform.isAndroid
-      ? 'ca-app-pub-9808019056055820/7988861846'
+      ? 'ca-app-pub-9808019056055820/7484950495'
       : 'ca-app-pub-3940256099942544/6300978111';
 // khai báo idqc banner
 
