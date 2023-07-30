@@ -46,6 +46,69 @@ class _BoiToanState extends State<BoiToan> {
   final TextEditingController name1Controller = TextEditingController();
   final TextEditingController name2Controller = TextEditingController();
   String result = '';
+  bool _isFullNameValid = true;
+  bool _isTextFieldEmpty = true;
+
+  void _validateFullName(String value) {
+    setState(() {
+      _isFullNameValid = value.trim().isNotEmpty;
+      _isTextFieldEmpty = !value.trim().isNotEmpty;
+    });
+  }
+
+  void _showRequiredFieldDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          elevation: 8.0,
+          backgroundColor: Colors.transparent,
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColors.contentcolor,
+              borderRadius: BorderRadius.circular(10.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: const Offset(0, 3), // changes position of shadow
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  'Uiii Lỗi Rồi!',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      fontFamily: 'Tilt_Neon'),
+                ),
+                const SizedBox(height: 8.0),
+                const Text(
+                  'Bạn phải nhập đủ họ và tên nha!',
+                  style: TextStyle(fontFamily: 'Tilt_Neon'),
+                ),
+                const SizedBox(height: 16.0),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('Đóng'),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   void initState() {
@@ -162,14 +225,20 @@ class _BoiToanState extends State<BoiToan> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TextField(
-                  style: const TextStyle(fontSize: 22, fontFamily: 'Tilt_Neon'),
                   controller: name1Controller,
+                  onChanged: _validateFullName,
+                  textCapitalization: TextCapitalization.words,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontFamily: 'Tilt_Neon', fontSize: 22),
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: AppColors.contentcolor,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0)),
                     hintText: 'Tên của bạn',
+                    errorText: _isFullNameValid
+                        ? null
+                        : 'Họ và tên không được để trống',
                   ),
                 ),
                 const SizedBox(
@@ -178,12 +247,18 @@ class _BoiToanState extends State<BoiToan> {
                 TextField(
                   style: const TextStyle(fontSize: 22, fontFamily: 'Tilt_Neon'),
                   controller: name2Controller,
+                  onChanged: _validateFullName,
+                  textCapitalization: TextCapitalization.words,
+                  textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: AppColors.contentcolor,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0)),
                     hintText: 'Tên người ấy',
+                    errorText: _isFullNameValid
+                        ? null
+                        : 'Họ và tên không được để trống',
                   ),
                 ),
                 const SizedBox(
@@ -191,8 +266,12 @@ class _BoiToanState extends State<BoiToan> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    _interstitialAd?.show();
-                    _showResultScreen();
+                    if (_isTextFieldEmpty) {
+                      _showRequiredFieldDialog();
+                    } else {
+                      _interstitialAd?.show();
+                      _showResultScreen();
+                    }
                   },
                   child: Card(
                     elevation: 3,
@@ -230,8 +309,12 @@ class _BoiToanState extends State<BoiToan> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    _interstitialAd?.show();
-                    _showResultScreenwork();
+                    if (_isTextFieldEmpty) {
+                      _showRequiredFieldDialog();
+                    } else {
+                      _interstitialAd?.show();
+                      _showResultScreenwork();
+                    }
                   },
                   child: Card(
                     elevation: 3,
@@ -269,8 +352,12 @@ class _BoiToanState extends State<BoiToan> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    _interstitialAd?.show();
-                    _showResultScreenmarried();
+                    if (_isTextFieldEmpty) {
+                      _showRequiredFieldDialog();
+                    } else {
+                      _interstitialAd?.show();
+                      _showResultScreenmarried();
+                    }
                   },
                   child: Card(
                     color: const Color(0xfff8dae9),
@@ -347,61 +434,33 @@ class _BoiToanState extends State<BoiToan> {
         adUnitId: _adUnitIdxenke,
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
-          // Called when an ad is successfully received.
           onAdLoaded: (ad) {
             ad.fullScreenContentCallback = FullScreenContentCallback(
-                // Called when the ad showed the full screen content.
                 onAdShowedFullScreenContent: (ad) {},
-                // Called when an impression occurs on the ad.
                 onAdImpression: (ad) {},
-                // Called when the ad failed to show full screen content.
-                // onAdFailedToShowFullScreenContent: (ad, err) {
-                //   // Dispose the ad here to free resources.
-                //   ad.dispose();
-                // },
-                // Called when the ad dismissed full screen content.
-                // onAdDismissedFullScreenContent: (ad) {
-                //   // Dispose the ad here to free resources.
-                //   ad.dispose();
-                // },
-                // Called when a click is recorded for an ad.
                 onAdClicked: (ad) {});
-
             debugPrint('$ad loaded.');
-            // Keep a reference to the ad so you can show it later.
             _interstitialAd = ad;
           },
-          // Called when an ad request failed.
           onAdFailedToLoad: (LoadAdError error) {
             debugPrint('InterstitialAd failed to load: $error');
           },
         ));
   }
 
-  /// Loads and shows a banner ad.
-  ///
-  /// Dimensions of the ad are determined by the AdSize class.
   void _loadAd() async {
     BannerAd(
       adUnitId: _adUnitId,
       request: const AdRequest(),
       size: AdSize.banner,
       listener: BannerAdListener(
-        // Called when an ad is successfully received.
         onAdLoaded: (ad) {
           setState(() {
             _bannerAd = ad as BannerAd;
           });
         },
-        // Called when an ad request failed.
-        // onAdFailedToLoad: (ad, err) {
-        //   ad.dispose();
-        // },
-        // Called when an ad opens an overlay that covers the screen.
         onAdOpened: (Ad ad) {},
-        // Called when an ad removes an overlay that covers the screen.
         onAdClosed: (Ad ad) {},
-        // Called when an impression occurs on the ad.
         onAdImpression: (Ad ad) {},
       ),
     ).load();

@@ -1,7 +1,9 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 import 'value/app_assets.dart';
 import 'value/app_colors.dart';
@@ -30,6 +32,7 @@ class ResultScreen extends StatefulWidget {
 
 class _ResultScreenState extends State<ResultScreen> {
   bool isLoading = true;
+  int randomPercent = 0;
   // khai báo idqc banner
   BannerAd? _bannerAd;
   //id google ca-app-pub-3940256099942544/6300978111   ca-app-pub-3940256099942544/2934735716
@@ -44,6 +47,7 @@ class _ResultScreenState extends State<ResultScreen> {
     super.initState();
     // Gọi phương thức _showResult() sau khi delay 2 giây
     _loadAd();
+    randomPercent = randomPercentage();
     _showResult();
   }
 
@@ -57,9 +61,19 @@ class _ResultScreenState extends State<ResultScreen> {
     });
   }
 
+  int randomPercentage() {
+    // Tạo một số ngẫu nhiên từ 0 đến 19
+    int randomNum = Random().nextInt(15);
+    // Cộng thêm 80 để có giá trị từ 80 đến 99
+    return 85 + randomNum;
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Size size = MediaQuery.of(context).size;
+    // đây là hàm random nè
+    String randomPercentText = "$randomPercent%";
+    // Tạo một giá trị ngẫu nhiên từ 80 đến 99
+    // int randomPercent = randomPercentage();
 
     return Scaffold(
       appBar: AppBar(
@@ -119,6 +133,48 @@ class _ResultScreenState extends State<ResultScreen> {
                                   blurRadius: 15),
                             ])),
                   ),
+                  const SizedBox(height: 20),
+                  Container(
+                    padding: const EdgeInsets.all(10.0),
+                    child: LinearPercentIndicator(
+                      width: MediaQuery.of(context).size.width - 70,
+                      animation: true,
+                      lineHeight: 50.0,
+                      animationDuration: 2000,
+                      percent: randomPercent / 100,
+                      backgroundColor: AppColors.contentcolor,
+                      barRadius: Radius.circular(20),
+                      center: Text(
+                        "$randomPercentText",
+                        style: const TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'Tilt_Neon',
+                            fontWeight: FontWeight.bold),
+                      ),
+                      linearStrokeCap: LinearStrokeCap.roundAll,
+                      progressColor: Colors.red,
+                    ),
+                  ),
+                  // Container(
+                  //     padding: const EdgeInsets.all(20),
+                  //     decoration: BoxDecoration(
+                  //       color: AppColors.contentcolor,
+                  //       borderRadius: BorderRadius.circular(20),
+                  //     ),
+                  //     child: isLoading
+                  //         ? const CircularProgressIndicator()
+                  //         : Column(
+                  //             children: [
+                  //               RichText(3
+                  //                   text: TextSpan(
+                  //                       //random từ 85 tới 99
+                  //                       text: randomInt(85, 99).toString(),
+                  //                       style: const TextStyle(
+                  //                           fontSize: 22,
+                  //                           fontFamily: 'Braah_One',
+                  //                           color: Colors.black)))
+                  //             ],
+                  //           )),
                   const SizedBox(height: 20),
                   Container(
                       padding: const EdgeInsets.all(20),

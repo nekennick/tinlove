@@ -10,7 +10,7 @@ String getResultNameMarried(int number) {
       return '"Đường tình duyên đã đưa bạn và người ấy đến với nhau. Hai bạn sẽ hòa quyện trong một tình yêu chân thành và xây dựng một hôn nhân đẹp, đầy tình yêu và sự bền vững."';
 
     case 4:
-      return '"Tương lai của bạn và người ấy sẽ được cùng nhau sống trong một mái nhà ấm cúng và tràn ngập tiếng cười của lũ trẻ. Sự tôn trọng và tình yêu sẽ là chìa khoá cho một cuộc sống hạnh phúc và trọn vẹn."';
+      return '"Tương lai của bạn và người ấy sẽ được cùng nhau sống trong một mái nhà ấm cúng và tràn ngập tiếng cười của trẻ con. Sự tôn trọng và tình yêu sẽ là chìa khoá cho một cuộc sống hạnh phúc và trọn vẹn."';
 
     case 5:
       return '"Hôn nhân của bạn và người ấy sẽ trở thành một bức tranh tuyệt đẹp, với muôn vàn màu sắc yêu thương và niềm tin không thể phai nhòa. Hai bạn sẽ cùng nhau xây dựng một tương lai vững chắc"';
