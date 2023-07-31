@@ -143,14 +143,15 @@ class _ResultScreenState extends State<ResultScreen> {
                       animationDuration: 2000,
                       percent: randomPercent / 100,
                       backgroundColor: AppColors.contentcolor,
-                      barRadius: Radius.circular(20),
+                      barRadius: const Radius.circular(20),
                       center: Text(
-                        "$randomPercentText",
+                        randomPercentText,
                         style: const TextStyle(
                             fontSize: 30,
                             fontFamily: 'Tilt_Neon',
                             fontWeight: FontWeight.bold),
                       ),
+                      // ignore: deprecated_member_use
                       linearStrokeCap: LinearStrokeCap.roundAll,
                       progressColor: Colors.red,
                     ),
