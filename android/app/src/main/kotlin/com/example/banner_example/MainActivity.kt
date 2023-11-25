@@ -1,4 +1,4 @@
-package com.khoata.ailove
+package vn.io.khoatran.ailove
 
 import io.flutter.embedding.android.FlutterActivity
 

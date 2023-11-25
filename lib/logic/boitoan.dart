@@ -28,18 +28,18 @@ class _BoiToanState extends State<BoiToan> {
   InterstitialAd? _interstitialAd;
 
 // QC banner
-//id google banner ca-app-pub-3940256099942544/6300978111
-//id app banner ca-app-pub-9808019056055820/7988861846
+//id google banner ca-app-pub-3940256099942544/6300978111 ca-app-pub-3940256099942544/2934735716
+//id app banner2 ca-app-pub-9808019056055820/3986389618
   final String _adUnitId = Platform.isAndroid
-      ? 'ca-app-pub-9808019056055820/7988861846'
-      : 'ca-app-pub-3940256099942544/6300978111';
+      ? 'ca-app-pub-9808019056055820/3986389618'
+      : 'ca-app-pub-3940256099942544/2934735716';
 
 //ID QC XenKe
 //id google ca-app-pub-3940256099942544/1033173712    ca-app-pub-3940256099942544/4411468910
-//id app ca-app-pub-9808019056055820/1860887099
+//id app ca-app-pub-9808019056055820/2673307940
   final String _adUnitIdxenke = Platform.isAndroid
-      ? 'ca-app-pub-9808019056055820/1860887099'
-      : 'ca-app-pub-3940256099942544/1033173712';
+      ? 'ca-app-pub-9808019056055820/2673307940'
+      : 'ca-app-pub-3940256099942544/4411468910';
 
 // khai báo idqc banner
 
@@ -466,10 +466,10 @@ class _BoiToanState extends State<BoiToan> {
     ).load();
   }
 
-  // @override
-  // void dispose() {
-  //   _bannerAd?.dispose();
-  //   _interstitialAd?.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    _interstitialAd?.dispose();
+    super.dispose();
+  }
 }

@@ -1,4 +1,4 @@
-# com.khoata.ailove
+# vn.io.khoatran.ailove
 
 An example project that demonstrates loading and showing banner ads.
 
